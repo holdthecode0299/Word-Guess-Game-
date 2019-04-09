@@ -1,0 +1,27 @@
+h1 {
+color:white;
+background-color: aquamarine;
+width: 25%;
+padding:30px; 
+};
+
+.container {
+color: green;
+height: 500px;
+width: 50%;
+background-color: aquamarine;
+};
+
+.randomNumber {
+background-color: aquamarine;
+width: 10%;
+height:10%;
+};
+
+h3 {
+color:white;
+background-color: aquamarine;
+width: 25%;
+padding:10px
+};
+

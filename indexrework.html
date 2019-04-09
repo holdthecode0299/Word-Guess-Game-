@@ -5,27 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
 <body>
 
-    <h1>Guess What Letter I'm thinking of</h1>
+    <div class="game">
+        <h1>Guess What Letter I'm thinking of</h1>
 
-
-    <br>
-    <strong>Wins: </strong> <span id="wins"></span>
-    <br><br>
-    <strong>Losses: </strong> <span id="losses"></span>
-    <br><br>
-    <strong>Guesses Left: </strong> <span id="guesses-left"></span>
-    <br><br>
-    <strong>Your Guesses So Far:</strong> <span id="guesses"></span>
-
+        <div class="scores">
+            <strong>Wins: </strong> <span id="wins"></span>
+            <br><br>
+            <strong>Losses: </strong> <span id="losses"></span>
+            <br><br>
+            <strong>Guesses Left: </strong> <span id="guesses-left"></span>
+            <br><br>
+            <strong>Your Guesses So Far:</strong> <span id="guesses"></span>
+            <br>
+                <div class="new">
+                    <input type="reset" value="New Game">
+                </div>
+        </div>
+    </div>
 
     <script>
 
-        var letter = ["a", "b", "c"]; 
+        var letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i",
+            "j", "k", "l", "m", "n", "o", "p",
+            "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; 
 
         var winCount = 0;
         var lossCount = 0;
@@ -37,32 +45,12 @@
 
         var guesses = document.getElementById("guesses");
 
-
         var winSpan = document.getElementById("wins");
-
-        winSpan.textContent = winCount
 
         var lossSpan = document.getElementById("losses");
 
-        // lossSpan.textContent = lossCount;
-
         var guessesLeft = document.getElementById("guesses-left");
-
-        // guessesLeft.textContent = remainingGuesses;
-
-
-
-        function reset (){
-            document.getElementById("guesses-left guesses" ).reset();
-
             
-                // var winCount = 0;
-                // var lossCount = 0;
-                // var remainingGuesses = 10;
-                // var guesses = "";
-
-            }
-
         
         // Key CLick Events 
         document.onkeyup = function (event) {
@@ -75,7 +63,6 @@
             if (userGuesses === computerGuess) {
                 
                     winCount++;
-                    // (winCount === 1);
                     alert("Nice, Good Job!");
                     reset();
             }
@@ -89,6 +76,7 @@
 
             if (remainingGuesses === 0){
                 lossCount++;
+                alert("Ouch, Try Again");
             }
 
             
@@ -99,28 +87,8 @@
 
 
         }
-
-            // if (guesses === letter[i]) {
-
-                
-
-                // if (winCount === 1) {
-                //     alert("Nice, Good Job!");
-                //     reset();
-
-                    
-
-                
-
-        // Alert loss if guesses >10
-
-                
-
-            
+          
 // Stop Game if >10 guesses or if guess is matched
-
-        
-
 
     </script>
 </body>

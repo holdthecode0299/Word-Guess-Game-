@@ -1,0 +1,22 @@
+.game{
+    font-size: 20px;
+    margin: 100px 50px 100px 200px;
+    border-style: dotted;
+    width: 60%;
+    height:40%;
+    /* background-color: pink; */
+}
+
+.scores {
+    font-size: 18px;
+    margin: 50px
+}
+
+body{
+    background-image: url("/Word-Guess-Game-/img/guess-autobiography-from-title_lead.jpg");
+
+}
+
+.new{
+    float: right;
+}

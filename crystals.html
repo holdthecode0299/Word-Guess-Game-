@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <link rel="stylesheet" type="text/css" href="crystals.css">
+                <title>Crystals Collector Game (Unit 4)</title>
+            </head>
+
+
+    <body>
+
+        <h1>Crystals Collector!</h1>
+
+        <div class = "container">
+            <p>You will be given a random number at the start of the game.</p>
+            <p>There are 4 crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+            <p>You will win the game by matching your total score to the random number, you lose the game if your total score goes above the random number. </p>
+            <p>The value of each crystal is hidden from you until you click on it.</p>
+            <p>Each time when the game starts, the game will change the values of each crystal.</p>
+        </div>
+
+        <div class="randomNumber">
+            <h3>Crystal Value:</h3><span id="randomNumber"></span></div>
+
+        <div class="scoreCount">
+                <h3>Wins: </h3> <span id="wins"></span>
+                <h3>Losses: </h3> <span id="losses"></span>
+        </div>
+        
+        <div class="crystals">
+            <img src ="crystal.jpg" id="violet"  width="150" height="150">
+            <img src ="crystal1.jpg" id="blue"  width="150" height="150">
+            <img src ="crystal2.jpg" id="pink" width="150" height="150">
+            <img src ="crystal3.jpg" id="green" width="150" height="150">
+        </div>
+
+        <div class="totalScore">
+            <h3>Your Total Score Is: </h3><span id="total-score"></span></div>
+
+        <script>
+        
+        // Declare variables 
+
+        var crystals = {
+             violet: {
+                "score": 0 
+             },
+             blue: {
+                "score": 0
+             },
+             pink: {
+                "score": 0
+             },
+             green: {
+                "score": 0
+             }
+        }
+
+
+         var totalScoreCount = 0; 
+         var winsCount = 0; 
+         var lossesCount = 0; 
+        
+
+        // random number generated 19-120
+
+        
+        var targetNumber = Math.floor(Math.random()*(120 - 19 + 1));
+        console.log(targetNumber)
+
+        $("#randomNumber").text(targetNumber);
+        // $("#wins").text(winsCount);
+        // $("#losses").text(lossesCount);
+
+
+        
+        // Scoreboard Count 
+        var wins = $("#wins").text(wins);
+        var losses = $("#losses").text(losses);
+
+
+
+        //  Crystal value generated 1-12
+        for (var i = 0; i < 4; i++) {
+            var images = $('img');
+
+            var crystalValue = Math.floor(Math.random()*(12 - 1 + 1));
+
+            $(images[i]).attr('value', crystalValue);
+
+        }
+
+    
+
+        // Key click Events (your score)
+
+
+        var totalScoreSpan = document.getElementById("total-score")
+           
+        // var totalScoreSpan = $("total-score")
+
+        var winsSpan = document.getElementById("wins")
+
+        // var winsSpan = $("wins")
+
+        var lossesSpan = document.getElementById("losses")
+
+        // var lossesSpan = $("losses")
+            
+
+        $("#violet").on("click", function() {
+            console.log("violet image was clicked " + $(this).attr("value"))
+            violet = $(this).attr("value");
+            totalScoreCount += crystalValue;
+            totalScoreSpan.textContent = totalScoreCount;
+        });
+
+        $("#blue").on("click", function(){
+            console.log("blue image was clicked " + $(this).attr("value"))
+            blue = $(this).attr("value");
+            totalScoreCount += crystalValue;
+            totalScoreSpan.textContent = totalScoreCount;
+            console.log(totalScoreCount);
+        })
+
+        $("#pink").on("click", function() {
+            console.log("pink image was clicked " + $(this).attr("value"))
+            pink = $(this).attr("value");
+            totalScoreCount += crystalValue;
+            totalScoreSpan.textContent = totalScoreCount;
+        });
+
+        $("#green").on("click", function() {
+            console.log("green image was clicked " + $(this).attr("value"))
+            green = $(this).attr("value");
+            totalScoreCount += crystalValue;
+            totalScoreSpan.textContent = totalScoreCount;
+        });
+       
+        // updating total score variable .random
+
+        $("#totalScore").text(totalScoreCount)
+        $("#number-to-guess").text(targetNumber);
+
+        // crystals.attr("crystal-value", crystalValues[i]);
+
+       
+        
+
+        // if else statements (win count, loss count, alert,random num reset)
+        
+
+        winsSpan.textContent = winsCount
+        // lossesSpan.textContent = lossesCount
+        totalScoreSpan.textContent = totalScoreCount 
+
+        
+
+        var checkScore = function() {
+    
+
+        if (totalScoreCount === targetNumber) {
+                
+                winsCount++;
+                winsSpan.textContent = winsCount;
+                alert("Awesome, Nice Crystal Collection!");
+            }
+        
+
+
+        if (totalScoreCount > targetNumber) { 
+                
+                // lossesSpan.textContent = lossesCount;
+                // totalScoreCount > targetNumber;
+                losses++;
+            }
+
+        };
+
+        </script>
+    
+
+
+    </body>
+
+
+
+
+
+</html>
